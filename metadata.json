@@ -1,0 +1,6 @@
+{
+  "name": "Filo",
+  "description": "Aplikasi pemantauan kehamilan komprehensif dengan panduan klinis maternal, jurnal harian, dan asisten BundaCare AI",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

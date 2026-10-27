@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_tab" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        color: #0F172A;
+        font-family: 'Inter', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#FF5A79',
+            dark: '#0F172A',
+            muted: '#64748B',
+            surface: '#FFFFFF',
+            canvas: '#FAFAFA',
+            divider: '#F1F5F9'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FAFAFA] text-[#0F172A] antialiased">
+<!-- Header: Apple Health style clean navbar -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-white/95 backdrop-blur-md border-b border-[#F1F5F9]">
+<div class="h-14 px-4 flex items-center justify-between max-w-lg mx-auto">
+<div class="flex items-center gap-3">
+<img alt="Filo Pregnancy Care Logo" class="h-7 w-7 object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-s_2QB1xD9sV76HmlZLGI51FowH2WSXGEU9vvsK1wKHiipU-NntVXl_MV3z8iD1Sfr_n7hakYfTW_V4UZ7xyZey8wmyRgoUvATylLSBBLe1CBYO_QqLEnrpBodU_aOnZiv2gsw-i9I9h-h0CN8j0TUAmXOL8CznEre3JqE4PJpITYHOIc-Z-s4JlysGkDfTzMTw8SXEUsl2Ja0ciU5iMnhvlPTMoU3yWi0WLR8lGZI9JjiZSW8cDv3w"/>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-heading font-bold text-base text-[#0F172A] tracking-tight">Filo Edukasi</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<p class="text-[11px] text-[#64748B] font-medium leading-none">Trimester 2 • Minggu 24</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Notifikasi" class="w-8 h-8 rounded-full flex items-center justify-center text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+</button>
+<a class="w-8 h-8 rounded-full overflow-hidden border border-[#F1F5F9] hover:opacity-90 transition-opacity" data-path="profil" href="#">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6VJf8O6HQYzba9t2WXTI4wtrXVUuQChWnplhct44OjraBVuVmEqt8p0DV9bCodmn8nFY01FFDLJk6tRM7bXorGJVCw4qIo5-9cIJcQXH9MXsWjMKm63eZXik3lRjcX5YWe8hF2jWnb84PGv2hsa8udCOJd4T_eH8csSTj1I_nr_GhYqp9OfScdP8UnXffqaid2u6mOcfabI_jq2adpKEkNqtWMvBVuiZm2U1bBhHpXJmJUDE-ivW_0w"/>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex flex-col relative w-full px-4 pt-16 pb-28 max-w-lg mx-auto space-y-6">
+<!-- Screen Title -->
+<section class="pt-4">
+<div class="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-[#64748B] uppercase mb-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">verified</span>
+<span>Klinis &amp; Terverifikasi Medis</span>
+</div>
+<h1 class="font-heading text-2xl font-bold text-[#0F172A] tracking-tight">Pusat Edukasi &amp; AI</h1>
+<p class="text-xs text-[#64748B] mt-1 leading-relaxed">Panduan klinis obstetri terpadu dan asisten tanya jawab kesehatan ibu hamil 24/7.</p>
+</section>
+<!-- 1. AI Assistant Chat (Flattened Clean Card) -->
+<section class="bg-white rounded-xl border border-[#F1F5F9] p-4 flex flex-col gap-3.5">
+<!-- Card Top: AI Metadata -->
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9] flex items-center justify-center text-[#0F172A]">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 leading-tight">
+<span class="font-heading font-semibold text-xs text-[#0F172A]">BundaCare AI</span>
+<span class="text-[10px] font-medium text-emerald-600 bg-emerald-50 px-1.5 py-0.2 rounded">Aktif</span>
+</div>
+<span class="text-[11px] text-[#64748B]">Spesialis Maternal &amp; Kebidanan</span>
+</div>
+</div>
+<span class="text-[11px] text-[#64748B] font-medium">Model v2.4</span>
+</div>
+<!-- Chat Exchange Stream -->
+<div class="flex flex-col gap-2.5 pt-0.5">
+<!-- User Query Message -->
+<div class="flex justify-end">
+<div class="bg-[#0F172A] text-white rounded-xl rounded-tr-xs px-3.5 py-2 max-w-[86%]">
+<p class="text-xs leading-relaxed font-normal">Apakah aman minum es air kelapa muda di trimester kedua?</p>
+<span class="block text-right text-[10px] text-slate-400 mt-1">10:42 WIB</span>
+</div>
+</div>
+<!-- AI Response Message -->
+<div class="flex gap-2.5 items-start">
+<div class="w-6 h-6 rounded-md bg-[#F1F5F9] text-[#64748B] flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+</div>
+<div class="bg-[#F8FAFC] border border-[#F1F5F9] rounded-xl rounded-tl-xs p-3 text-xs text-[#0F172A] leading-relaxed flex-1">
+<p>Sangat aman, Bunda. Air kelapa alami kaya elektrolit dan kalium yang membantu mencegah dehidrasi serta kram betis pada malam hari. Hindari penambahan sirup atau pemanis sintetis.</p>
+<div class="flex items-center gap-1 mt-2 pt-2 border-t border-[#F1F5F9] text-[10px] text-[#64748B]">
+<span class="material-symbols-outlined text-[12px] text-emerald-600">check_circle</span>
+<span>Divalidasi Konsil Obstetri &amp; Ginekologi</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Suggested Prompts (Flat list) -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1">
+<button class="shrink-0 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#F1F5F9] text-[11px] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-100 transition-colors" onclick="selectPrompt('Posisi tidur optimal trimester 2')" type="button">
+          Posisi tidur
+        </button>
+<button class="shrink-0 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#F1F5F9] text-[11px] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-100 transition-colors" onclick="selectPrompt('Penanganan mual pagi')" type="button">
+          Atasi mual
+        </button>
+<button class="shrink-0 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#F1F5F9] text-[11px] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-100 transition-colors" onclick="selectPrompt('Asupan zat besi harian')" type="button">
+          Zat besi harian
+        </button>
+</div>
+<!-- Chat Input Field -->
+<div class="flex items-center gap-2 pt-1 border-t border-[#F1F5F9]">
+<div class="relative flex-1 flex items-center">
+<input class="w-full h-9 pl-3 pr-8 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9] text-xs text-[#0F172A] placeholder:text-[#64748B] focus:bg-white focus:outline-none focus:border-[#FF5A79] transition-all" id="chat-input" placeholder="Tanyakan kondisi atau asupan gizi..." type="text"/>
+<button aria-label="Rekam Suara" class="absolute right-2 text-[#64748B] hover:text-[#0F172A] transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+</button>
+</div>
+<button aria-label="Kirim Pertanyaan" class="w-9 h-9 rounded-lg bg-[#FF5A79] text-white flex items-center justify-center shrink-0 hover:bg-[#e04564] active:scale-95 transition-all" id="send-btn" type="button">
+<span class="material-symbols-outlined text-[17px]">send</span>
+</button>
+</div>
+</section>
+<!-- 2. Food Safety Checker (Clean Flat Table/List) -->
+<section class="bg-white rounded-xl border border-[#F1F5F9] p-4 flex flex-col gap-3">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-heading font-semibold text-sm text-[#0F172A] tracking-tight">Cek Keamanan Makanan</h2>
+<p class="text-[11px] text-[#64748B]">Indeks nutrisi medis &amp; batas aman konsumsi</p>
+</div>
+<span class="text-[10px] font-medium text-[#64748B] bg-[#F8FAFC] border border-[#F1F5F9] px-2 py-0.5 rounded">Standar BPOM</span>
+</div>
+<!-- Search Input Bar -->
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-[#64748B] text-[16px]">search</span>
+<input class="w-full h-9 pl-8.5 pr-8 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9] text-xs text-[#0F172A] placeholder:text-[#64748B] focus:bg-white focus:outline-none focus:border-[#FF5A79] transition-all" id="food-search" oninput="filterFoodList(this.value)" placeholder="Cari bahan pangan (telur, susu, salmon)..." type="text"/>
+<button class="hidden absolute right-2.5 text-[#64748B] hover:text-[#0F172A]" id="clear-search-btn" onclick="clearFoodSearch()" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Food Items List with 1px Dividers -->
+<div class="divide-y divide-[#F1F5F9] border-t border-[#F1F5F9] mt-1" id="food-card-list">
+<!-- Item 1 -->
+<article class="food-item py-3 flex items-start justify-between gap-3" data-food="telur matang sempurna rebus protein choline">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div>
+<h3 class="text-xs font-semibold text-[#0F172A]">Telur Matang Sempurna</h3>
+<p class="text-[11px] text-[#64748B] mt-0.5 leading-snug">Kaya kolin dan asam amino untuk pembentukan jaringan otak janin.</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded shrink-0">AMAN</span>
+</article>
+<!-- Item 2 -->
+<article class="food-item py-3 flex items-start justify-between gap-3" data-food="salmon panggang ikan matang omega dha epa">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div>
+<h3 class="text-xs font-semibold text-[#0F172A]">Salmon Panggang Matang</h3>
+<p class="text-[11px] text-[#64748B] mt-0.5 leading-snug">Sumber Omega-3 tinggi dengan kadar merkuri rendah teruji aman.</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded shrink-0">AMAN</span>
+</article>
+<!-- Item 3 -->
+<article class="food-item py-3 flex items-start justify-between gap-3" data-food="keju lunak unpasteurized brie feta susu mentah listeria">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-600 text-[18px] shrink-0 mt-0.5">error_outline</span>
+<div>
+<h3 class="text-xs font-semibold text-[#0F172A]">Keju Mentah (Brie, Feta Lunak)</h3>
+<p class="text-[11px] text-[#64748B] mt-0.5 leading-snug">Beresiko transmisi bakteri <span class="italic">Listeria monocytogenes</span>.</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded shrink-0">HINDARI</span>
+</article>
+<!-- Item 4 -->
+<article class="food-item py-3 flex items-start justify-between gap-3" data-food="daging mentah sushi sashimi steak rare toksoplasma salmonella">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-rose-600 text-[18px] shrink-0 mt-0.5">cancel</span>
+<div>
+<h3 class="text-xs font-semibold text-[#0F172A]">Daging &amp; Ikan Mentah (Sushi)</h3>
+<p class="text-[11px] text-[#64748B] mt-0.5 leading-snug">Potensi infeksi parasit Toxoplasma dan infeksi Salmonella.</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded shrink-0">HINDARI</span>
+</article>
+<!-- Item 5 -->
+<article class="food-item py-3 flex items-start justify-between gap-3" data-food="pepaya muda mengkal getah lateks papain">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-600 text-[18px] shrink-0 mt-0.5">error_outline</span>
+<div>
+<h3 class="text-xs font-semibold text-[#0F172A]">Pepaya Mentah / Mengkal</h3>
+<p class="text-[11px] text-[#64748B] mt-0.5 leading-snug">Kandungan getah lateks papain tinggi berisiko stimulasi kontraksi dini.</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded shrink-0">BATASI</span>
+</article>
+</div>
+</section>
+<!-- 3. Curated Medical Articles (Clean flat layout) -->
+<section class="bg-white rounded-xl border border-[#F1F5F9] p-4 flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-heading font-semibold text-sm text-[#0F172A] tracking-tight">Koleksi Artikel Pilihan</h2>
+<p class="text-[11px] text-[#64748B]">Tinjauan klinis berkala dari dokter spesialis</p>
+</div>
+<a class="text-xs font-medium text-[#FF5A79] hover:underline flex items-center gap-0.5" href="#">
+          Lihat Semua
+          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+<!-- Segmented Category Control -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar border-b border-[#F1F5F9] pb-2.5" id="article-tabs">
+<button class="tab-btn px-3 py-1 rounded-md bg-[#0F172A] text-white text-[11px] font-medium whitespace-nowrap transition-colors" onclick="switchTab(this)" type="button">
+          Semua
+        </button>
+<button class="tab-btn px-3 py-1 rounded-md bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] text-[11px] font-medium whitespace-nowrap transition-colors" onclick="switchTab(this)" type="button">
+          Nutrisi
+        </button>
+<button class="tab-btn px-3 py-1 rounded-md bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] text-[11px] font-medium whitespace-nowrap transition-colors" onclick="switchTab(this)" type="button">
+          Perkembangan Janin
+        </button>
+<button class="tab-btn px-3 py-1 rounded-md bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] text-[11px] font-medium whitespace-nowrap transition-colors" onclick="switchTab(this)" type="button">
+          Persiapan Persalinan
+        </button>
+</div>
+<!-- Article Items List with 1px Dividers -->
+<div class="divide-y divide-[#F1F5F9]">
+<!-- Article 1 -->
+<article class="py-3 first:pt-0 last:pb-0 flex gap-3 items-center group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[#F1F5F9] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close-up serene pregnant mother placing hands lovingly on her baby bump resting on soft pastel linen, warm golden morning light streaming in, soft rose and peach tones, high quality maternal photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWnM_lvIeyzM-bthcA9UFj7cCKGW8-_TalH0xoCJADYVjksctxbIH3yckxa6gmOGAcFmc46E4cRyonwUXMLTtrQhDpASh6sV3XcLvoX7_bzMKc7Mt4KcAARH-Yn4QHrN-t41dGSNe5vtqX7HrojCOm0m18I0f9u_alIckoElERJgCpREHxQhlEVgN3wr6icfnseEzCMxkkFX9GDCOiduICP02e51R25faNRBql_uEHyViFDMTxvCNPJA"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 text-[10px] font-medium text-[#64748B] uppercase tracking-wider mb-0.5">
+<span>Metode Cardiff 10</span>
+<span>•</span>
+<span>4 mnt</span>
+</div>
+<h3 class="text-xs font-semibold text-[#0F172A] leading-snug line-clamp-2 group-hover:text-[#FF5A79] transition-colors">
+              Panduan Menghitung Gerakan Janin dengan Metode Cardiff 10
+            </h3>
+<p class="text-[11px] text-[#64748B] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-emerald-600">verified</span>
+<span>dr. Sp.OG Konsultan</span>
+</p>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="py-3 first:pt-0 last:pb-0 flex gap-3 items-center group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[#F1F5F9] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Relaxing pregnant woman elevating her legs on soft plush pillows in a cozy bedroom with warm ambient sunlight, peaceful calming aesthetic, pastel coral and ivory shades" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClSJhApQw3bNJJKTWckRP3L8pAbd_Y7LlfTErv0mP4kC2Ua-o8Hn1gKCrVj7IIX3MejCS1Nl-rumCsNqsnfvANlLOouT-FjIYOC1SnFD0Q5aMQCmCCarpRKEMnbVOMfLwWPa9kfG8xWQpz_NU8u6T8SyIJeGb00_OPCSDv0yqyT97lhINa3PQfHo2SMfO7cvGezSDHkKh53Eoe0dScHmuyaRtl6cBWh8GhlNinNVk55_rOR_DOjJl5hA"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 text-[10px] font-medium text-[#64748B] uppercase tracking-wider mb-0.5">
+<span>Trimester Kedua</span>
+<span>•</span>
+<span>3 mnt</span>
+</div>
+<h3 class="text-xs font-semibold text-[#0F172A] leading-snug line-clamp-2 group-hover:text-[#FF5A79] transition-colors">
+              Mengatasi Kram Otot Kaki Saat Tidur Malam di Trimester 2
+            </h3>
+<p class="text-[11px] text-[#64748B] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-emerald-600">verified</span>
+<span>Fisioterapis Maternal RSIA</span>
+</p>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="py-3 first:pt-0 last:pb-0 flex gap-3 items-center group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[#F1F5F9] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Aesthetic healthy bowl with spinach, beetroot, dates, pomegranate and lean meat on a clean marble kitchen countertop, bright cheerful lighting, blush pink napkin accent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsP332cRQ0zCYOiiF-IztV_iZDTJ191UgZ5sORpKXdSgdx9KIW8-G6stVEfPaoaOM1TSarEFPkIZSRNgu2x8GaUBRZnBnHIO66cEV6k5Wc40iO8h_RtBrzQg36DyDNov0IK3_m_xMi-TYC2oeafX_DaaCIJz0YSa8QFssmqyHbfs8F4KN2DkPUypiLlVkl_L-ryeHBlFttTQYLZtOsuiixYUbGiTE0hRBF8K_BiPYAbLjI1Oukh3y6cg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 text-[10px] font-medium text-[#64748B] uppercase tracking-wider mb-0.5">
+<span>Gizi &amp; Darah</span>
+<span>•</span>
+<span>5 mnt</span>
+</div>
+<h3 class="text-xs font-semibold text-[#0F172A] leading-snug line-clamp-2 group-hover:text-[#FF5A79] transition-colors">
+              Daftar Makanan Penambah Hemoglobin untuk Cegah Anemia Ibu Hamil
+            </h3>
+<p class="text-[11px] text-[#64748B] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-emerald-600">verified</span>
+<span>Ahli Gizi Klinis RSIA</span>
+</p>
+</div>
+</article>
+</div>
+</section>
+<!-- 4. Clinical Referral / Teleconsultation (Flat Banner) -->
+<section class="bg-white rounded-xl border border-[#F1F5F9] p-4 flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider">Konsultasi Medis Langsung</span>
+<h3 class="font-heading font-semibold text-xs text-[#0F172A]">Butuh evaluasi dokter spesialis obgyn?</h3>
+<p class="text-[11px] text-[#64748B] leading-relaxed">Terhubung dengan tenaga medis bersertifikat dalam 15 menit.</p>
+<button class="mt-2 self-start px-3 py-1.5 rounded-lg bg-[#0F172A] text-white text-xs font-medium hover:bg-slate-800 active:scale-95 transition-all flex items-center gap-1.5" type="button">
+<span>Jadwalkan Sesi</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9] flex items-center justify-center shrink-0 text-[#0F172A]">
+<span class="material-symbols-outlined text-[24px]">stethoscope</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation: Fixed 5 Tabs (Beranda, Jurnal, Edukasi [Active], Medis, Profil) -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-white border-t border-[#F1F5F9]">
+<div class="max-w-lg mx-auto h-14 flex items-center justify-around px-2">
+<!-- 1. Beranda -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="beranda" href="#">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="text-[10px] font-medium mt-0.5">Beranda</span>
+</a>
+<!-- 2. Jurnal -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="jurnal" href="#">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+<span class="text-[10px] font-medium mt-0.5">Jurnal</span>
+</a>
+<!-- 3. Edukasi (Active with Coral Pink Accent #FF5A79) -->
+<a aria-current="page" class="flex flex-col items-center justify-center py-1 px-3 text-[#FF5A79] font-semibold transition-colors" data-path="edukasi" href="#">
+<span class="material-symbols-outlined text-[22px]">school</span>
+<span class="text-[10px] font-semibold mt-0.5">Edukasi</span>
+</a>
+<!-- 4. Medis -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="medis" href="#">
+<span class="material-symbols-outlined text-[22px]">medical_services</span>
+<span class="text-[10px] font-medium mt-0.5">Medis</span>
+</a>
+<!-- 5. Profil -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="profil" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[10px] font-medium mt-0.5">Profil</span>
+</a>
+</div>
+</nav>
+<!-- Interactive Scripts -->
+<script>
+    function selectPrompt(text) {
+      const input = document.getElementById('chat-input');
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    }
+
+    function filterFoodList(query) {
+      const clearBtn = document.getElementById('clear-search-btn');
+      const items = document.querySelectorAll('.food-item');
+      const cleanQuery = (query || '').toLowerCase().trim();
+
+      if (clearBtn) {
+        if (cleanQuery.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+
+      items.forEach(item => {
+        const data = item.getAttribute('data-food') || '';
+        if (!cleanQuery || data.toLowerCase().includes(cleanQuery)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function clearFoodSearch() {
+      const input = document.getElementById('food-search');
+      if (input) {
+        input.value = '';
+        filterFoodList('');
+        input.focus();
+      }
+    }
+
+    function switchTab(btn) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(t => {
+        t.className = 'tab-btn px-3 py-1 rounded-md bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] text-[11px] font-medium whitespace-nowrap transition-colors';
+      });
+      btn.className = 'tab-btn px-3 py-1 rounded-md bg-[#0F172A] text-white text-[11px] font-medium whitespace-nowrap transition-colors';
+    }
+
+    document.getElementById('send-btn')?.addEventListener('click', () => {
+      const input = document.getElementById('chat-input');
+      if (input && input.value.trim() !== '') {
+        input.value = '';
+        input.placeholder = 'Memproses jawaban klinis...';
+        setTimeout(() => {
+          input.placeholder = 'Tanyakan kondisi atau asupan gizi...';
+        }, 1500);
+      }
+    });
+  </script>
+</body></html>

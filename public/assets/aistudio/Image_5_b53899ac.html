@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_tab" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#FF5A79",
+            "primary-hover": "#E64867",
+            "slate-dark": "#0F172A",
+            "slate-gray": "#64748B",
+            "slate-subtle": "#94A3B8",
+            "border-clean": "#F1F5F9",
+            "bg-global": "#FAFAFA"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        color: #0F172A;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#0F172A] antialiased font-sans min-h-screen selection:bg-pink-100 selection:text-primary">
+<!-- Clean Top Header (Apple Health Minimalist) -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-white/95 backdrop-blur-md border-b border-[#F1F5F9]">
+<div class="h-14 px-4 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Filo Pregnancy Care Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-s_2QB1xD9sV76HmlZLGI51FowH2WSXGEU9vvsK1wKHiipU-NntVXl_MV3z8iD1Sfr_n7hakYfTW_V4UZ7xyZey8wmyRgoUvATylLSBBLe1CBYO_QqLEnrpBodU_aOnZiv2gsw-i9I9h-h0CN8j0TUAmXOL8CznEre3JqE4PJpITYHOIc-Z-s4JlysGkDfTzMTw8SXEUsl2Ja0ciU5iMnhvlPTMoU3yWi0WLR8lGZI9JjiZSW8cDv3w"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 leading-none">
+<span class="font-display font-bold text-[16px] text-[#0F172A]">Filo</span>
+<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B]">Jurnal</span>
+</div>
+<span class="text-[11px] text-[#64748B] mt-0.5">Trimester 2 • W24</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Notifikasi" class="w-8 h-8 rounded-full flex items-center justify-center text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+</button>
+<a class="w-8 h-8 rounded-full flex items-center justify-center p-0.5 hover:ring-1 hover:ring-[#F1F5F9] transition-all" data-path="akun" href="#">
+<img alt="Profile" class="w-7 h-7 rounded-full object-cover border border-[#F1F5F9]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6VJf8O6HQYzba9t2WXTI4wtrXVUuQChWnplhct44OjraBVuVmEqt8p0DV9bCodmn8nFY01FFDLJk6tRM7bXorGJVCw4qIo5-9cIJcQXH9MXsWjMKm63eZXik3lRjcX5YWe8hF2jWnb84PGv2hsa8udCOJd4T_eH8csSTj1I_nr_GhYqp9OfScdP8UnXffqaid2u6mOcfabI_jq2adpKEkNqtWMvBVuiZm2U1bBhHpXJmJUDE-ivW_0w"/>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Area: 24px vertical section gap -->
+<main class="flex flex-col relative w-full px-4 pt-18 pb-28 max-w-md mx-auto space-y-6">
+<!-- 1. Header & Calendar Strip -->
+<section class="space-y-3 pt-2">
+<div class="flex items-baseline justify-between">
+<div>
+<h1 class="font-display text-[20px] font-bold text-[#0F172A] tracking-tight">Jurnal Harian Bunda</h1>
+<p class="text-[12px] text-[#64748B] mt-0.5">Catat momen, keluhan, dan gerak buah hati</p>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#F1F5F9] text-[#64748B] text-[11px] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+<span>23 Sep 2025</span>
+</div>
+</div>
+<!-- Weekly Selector Strip (Flat Apple Health Style) -->
+<div class="grid grid-cols-6 gap-2">
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-white border border-[#F1F5F9] transition-all" type="button">
+<span class="text-[10px] font-medium text-[#94A3B8]">Min</span>
+<span class="text-[15px] font-semibold text-[#0F172A] mt-0.5">21</span>
+<span class="w-1 h-1 rounded-full bg-[#F1F5F9] mt-1.5"></span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-white border border-[#F1F5F9] transition-all" type="button">
+<span class="text-[10px] font-medium text-[#94A3B8]">Sen</span>
+<span class="text-[15px] font-semibold text-[#0F172A] mt-0.5">22</span>
+<span class="w-1 h-1 rounded-full bg-primary mt-1.5"></span>
+</button>
+<!-- Active Pill -->
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-[#0F172A] text-white transition-all shadow-sm" type="button">
+<span class="text-[10px] font-medium text-slate-300">Sel</span>
+<span class="text-[15px] font-bold text-white mt-0.5">23</span>
+<span class="w-1 h-1 rounded-full bg-primary mt-1.5"></span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-white border border-[#F1F5F9] transition-all" type="button">
+<span class="text-[10px] font-medium text-[#94A3B8]">Rab</span>
+<span class="text-[15px] font-semibold text-[#0F172A] mt-0.5">24</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-1.5"></span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-white border border-[#F1F5F9] transition-all" type="button">
+<span class="text-[10px] font-medium text-[#94A3B8]">Kam</span>
+<span class="text-[15px] font-semibold text-[#0F172A] mt-0.5">25</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-1.5"></span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 rounded-xl bg-white border border-[#F1F5F9] transition-all" type="button">
+<span class="text-[10px] font-medium text-[#94A3B8]">Jum</span>
+<span class="text-[15px] font-semibold text-[#0F172A] mt-0.5">26</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-1.5"></span>
+</button>
+</div>
+</section>
+<!-- 2. Minimalist Mood Tracker (Clean Flo Production Style) -->
+<section class="rounded-2xl bg-white border border-[#F1F5F9] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#64748B]">sentiment_satisfied</span>
+<div>
+<h2 class="text-[14px] font-semibold text-[#0F172A] leading-tight">Kondisi Suasana Hati</h2>
+<p class="text-[11px] text-[#64748B]">Bagaimana perasaan Bunda hari ini?</p>
+</div>
+</div>
+<span class="text-[10px] font-medium text-[#64748B] bg-white border border-[#F1F5F9] px-2 py-0.5 rounded-full">08:30 WIB</span>
+</div>
+<!-- Flat Mood Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1" style="scrollbar-width: none;">
+<button class="mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0F172A] text-white font-medium text-[12px] transition-all" type="button">
+<span class="text-sm">😊</span>
+<span>Bahagia</span>
+</button>
+<button class="mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] font-medium text-[12px] transition-all" type="button">
+<span class="text-sm">😌</span>
+<span>Tenang</span>
+</button>
+<button class="mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] font-medium text-[12px] transition-all" type="button">
+<span class="text-sm">🥱</span>
+<span>Lelah</span>
+</button>
+<button class="mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] font-medium text-[12px] transition-all" type="button">
+<span class="text-sm">🥺</span>
+<span>Cemas</span>
+</button>
+<button class="mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] font-medium text-[12px] transition-all" type="button">
+<span class="text-sm">🌸</span>
+<span>Sensitif</span>
+</button>
+</div>
+<!-- Flat Reflection Note (Divider line, no nested box) -->
+<div class="pt-2 border-t border-[#F1F5F9] flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-[#94A3B8]">format_quote</span>
+<span class="text-[12px] text-[#64748B] italic truncate">"Merasa segar setelah jalan pagi santai ✨"</span>
+</div>
+</section>
+<!-- 3. Flattened Kick Counter (No nested boxes, flat clean ring & telemetry) -->
+<section class="rounded-2xl bg-white border border-[#F1F5F9] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<div>
+<h2 class="text-[14px] font-bold text-[#0F172A] font-display leading-tight">Tendangan Janin</h2>
+<p class="text-[11px] text-[#64748B]">Target: 10 gerakan dalam 2 jam</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white border border-[#F1F5F9] text-emerald-600">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-semibold">Aktif &amp; Sehat</span>
+</div>
+</div>
+<!-- Precision Circular Ring & Telemetry directly on card background -->
+<div class="flex flex-col items-center justify-center py-2">
+<div class="relative flex items-center justify-center">
+<svg class="w-38 h-38 transform -rotate-90" height="152" viewbox="0 0 152 152" width="152">
+<!-- Background Track -->
+<circle class="stroke-[#F1F5F9]" cx="76" cy="76" fill="none" r="62" stroke-width="10"></circle>
+<!-- Coral Accent Ring (10% accent) -->
+<circle class="stroke-primary" cx="76" cy="76" fill="none" id="kick-ring" r="62" stroke-dasharray="390" stroke-dashoffset="117" stroke-linecap="round" stroke-width="10" style="transition: stroke-dashoffset 0.4s ease;"></circle>
+</svg>
+<!-- Center Button -->
+<button class="absolute w-28 h-28 rounded-full bg-white flex flex-col items-center justify-center group focus:outline-none transition-transform active:scale-95" id="kick-trigger" type="button">
+<span class="text-[10px] font-semibold uppercase tracking-wider text-[#94A3B8]">Gerakan</span>
+<div class="flex items-baseline gap-0.5 my-0.5">
+<span class="font-display text-[32px] font-bold text-[#0F172A] leading-none" id="kick-count">7</span>
+<span class="text-[13px] font-medium text-[#94A3B8]">/10</span>
+</div>
+<span class="text-[10px] font-medium text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">touch_app</span> Ketuk Tambah
+</span>
+</button>
+</div>
+<!-- Telemetry Divider Row directly on card surface -->
+<div class="grid grid-cols-2 divide-x divide-[#F1F5F9] w-full mt-4 pt-3 border-t border-[#F1F5F9]">
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-medium text-[#64748B]">Durasi Sesi</span>
+<span class="text-[13px] font-semibold text-[#0F172A] mt-0.5">34 Menit</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-medium text-[#64748B]">Rerata Frekuensi</span>
+<span class="text-[13px] font-semibold text-[#0F172A] mt-0.5">~4.8 mnt/gerak</span>
+</div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="grid grid-cols-2 gap-2.5">
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-[12px] shadow-sm transition-all" id="add-kick-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Rekam Gerakan</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white border border-[#F1F5F9] text-[#0F172A] hover:bg-[#FAFAFA] font-medium text-[12px] transition-all" id="reset-kick-btn" type="button">
+<span class="material-symbols-outlined text-[15px] text-[#64748B]">restart_alt</span>
+<span>Atur Ulang</span>
+</button>
+</div>
+<!-- History Link Row -->
+<div class="flex items-center justify-between text-[11px] pt-1 text-[#64748B] border-t border-[#F1F5F9]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-[#94A3B8]">history</span>
+Kemarin: 10 tendangan dlm 45 mnt
+</span>
+<button class="font-medium text-[#0F172A] hover:text-primary transition-colors flex items-center" type="button">
+Riwayat
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- 4. Symptoms & Physical Condition Tracker (Flattened, no nested boxes, clean row dividers) -->
+<section class="rounded-2xl bg-white border border-[#F1F5F9] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#64748B]">healing</span>
+<div>
+<h2 class="text-[14px] font-bold text-[#0F172A] font-display leading-tight">Keluhan &amp; Sensasi</h2>
+<p class="text-[11px] text-[#64748B]">4 keluhan tercatat hari ini</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#FAFAFA] text-[#0F172A] border border-[#F1F5F9] text-[11px] font-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Tambah</span>
+</button>
+</div>
+<!-- Symptom Rows with clean 1px borders -->
+<div class="divide-y divide-[#F1F5F9]">
+<!-- Item 1 -->
+<div class="py-2.5 first:pt-1 last:pb-1 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#64748B] flex-shrink-0">airline_seat_recline_extra</span>
+<div class="min-w-0">
+<p class="text-[12px] font-medium text-[#0F172A] truncate">Nyeri Punggung Bawah</p>
+<p class="text-[11px] text-[#64748B] truncate">Mulai terasa saat duduk lama</p>
+</div>
+</div>
+<span class="flex-shrink-0 px-2 py-0.5 rounded border border-[#F1F5F9] text-[#64748B] text-[10px] font-medium">Ringan</span>
+</div>
+<!-- Item 2 -->
+<div class="py-2.5 first:pt-1 last:pb-1 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#64748B] flex-shrink-0">sick</span>
+<div class="min-w-0">
+<p class="text-[12px] font-medium text-[#0F172A] truncate">Mual Ringan (Morning Sickness)</p>
+<p class="text-[11px] text-[#64748B] truncate">Membaik setelah sarapan</p>
+</div>
+</div>
+<span class="flex-shrink-0 px-2 py-0.5 rounded border border-[#F1F5F9] text-[#64748B] text-[10px] font-medium">Ringan</span>
+</div>
+<!-- Item 3 -->
+<div class="py-2.5 first:pt-1 last:pb-1 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-amber-600 flex-shrink-0">accessibility_new</span>
+<div class="min-w-0">
+<p class="text-[12px] font-medium text-[#0F172A] truncate">Kram Betis Malam Hari</p>
+<p class="text-[11px] text-[#64748B] truncate">Bangun 03:00, kompres hangat</p>
+</div>
+</div>
+<span class="flex-shrink-0 px-2 py-0.5 rounded border border-amber-200 text-amber-700 text-[10px] font-medium">Perlu Pantau</span>
+</div>
+<!-- Item 4 -->
+<div class="py-2.5 first:pt-1 last:pb-1 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#64748B] flex-shrink-0">local_fire_department</span>
+<div class="min-w-0">
+<p class="text-[12px] font-medium text-[#0F172A] truncate">Heartburn / Asam Lambung</p>
+<p class="text-[11px] text-[#64748B] truncate">Setelah camilan sore</p>
+</div>
+</div>
+<span class="flex-shrink-0 px-2 py-0.5 rounded border border-[#F1F5F9] text-[#64748B] text-[10px] font-medium">Ringan</span>
+</div>
+</div>
+<!-- Alert Banner: Clean minimalist flat style with neutral/subtle alert -->
+<div class="p-3 rounded-xl bg-white border border-[#F1F5F9] flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[16px] text-rose-500 flex-shrink-0 mt-0.5">warning</span>
+<div class="space-y-1">
+<p class="text-[11px] font-semibold text-[#0F172A]">Perhatian Tanda Bahaya</p>
+<p class="text-[11px] text-[#64748B] leading-relaxed">
+Jika gerakan janin berkurang (&lt;10x dalam 2 jam), segera hubungi dokter faskes terdekat.
+</p>
+<a class="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-600 hover:underline pt-0.5" href="#">
+<span>Konsul Dokter Darurat</span>
+<span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 5. Daily Notes Card (Flat layout, single card) -->
+<section class="rounded-2xl bg-white border border-[#F1F5F9] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#64748B]">edit_note</span>
+<h2 class="text-[14px] font-bold text-[#0F172A] font-display">Catatan Hari Ini</h2>
+</div>
+<button class="text-[11px] font-medium text-[#64748B] hover:text-[#0F172A]" type="button">Edit</button>
+</div>
+<p class="text-[12px] leading-relaxed text-[#0F172A] pt-1 border-t border-[#F1F5F9]">
+"Si kecil sangat aktif malam ini setelah Bunda minum susu hangat dan Ayah membacakan dongeng. Terasa denyut dan tendangan lembut di perut kanan."
+</p>
+<div class="flex items-center justify-between pt-1 text-[10px] text-[#64748B]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+21:15 WIB
+</span>
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+Bunda &amp; Ayah
+</span>
+</div>
+</section>
+<!-- 6. Share Section -->
+<section class="p-3.5 rounded-2xl bg-white border border-[#F1F5F9] shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-[#64748B]">share</span>
+<div>
+<p class="text-[12px] font-semibold text-[#0F172A]">Bagikan Jurnal ke Ayah</p>
+<p class="text-[10px] text-[#64748B]">Kirimkan rangkuman harian via WhatsApp</p>
+</div>
+</div>
+<button aria-label="Bagikan" class="w-7 h-7 rounded-full bg-white border border-[#F1F5F9] hover:bg-[#FAFAFA] text-[#0F172A] flex items-center justify-center transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">send</span>
+</button>
+</section>
+</main>
+<!-- Interactive Logic -->
+<script>
+    (function() {
+      let currentKicks = 7;
+      const targetKicks = 10;
+      const kickCountEl = document.getElementById('kick-count');
+      const kickRing = document.getElementById('kick-ring');
+      const triggerBtn = document.getElementById('kick-trigger');
+      const addBtn = document.getElementById('add-kick-btn');
+      const resetBtn = document.getElementById('reset-kick-btn');
+
+      // 2 * Math.PI * 62 = ~389.56
+      const totalCircumference = 390;
+
+      function updateProgress() {
+        if (kickCountEl) {
+          kickCountEl.textContent = currentKicks;
+        }
+        if (kickRing) {
+          const fraction = Math.min(currentKicks / targetKicks, 1);
+          const offset = totalCircumference - (fraction * totalCircumference);
+          kickRing.style.strokeDashoffset = offset;
+        }
+      }
+
+      function addKick() {
+        if (currentKicks < 15) {
+          currentKicks++;
+          updateProgress();
+        }
+      }
+
+      function resetKicks() {
+        currentKicks = 0;
+        updateProgress();
+      }
+
+      if (triggerBtn) triggerBtn.addEventListener('click', addKick);
+      if (addBtn) addBtn.addEventListener('click', addKick);
+      if (resetBtn) resetBtn.addEventListener('click', resetKicks);
+
+      // Mood toggle
+      const moodButtons = document.querySelectorAll('.mood-btn');
+      moodButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          moodButtons.forEach(b => {
+            b.className = 'mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] font-medium text-[12px] transition-all';
+          });
+          btn.className = 'mood-btn flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0F172A] text-white font-medium text-[12px] transition-all';
+        });
+      });
+    })();
+  </script>
+<!-- Clean Fixed Bottom Navigation Bar (5 tabs: Beranda, Jurnal, Edukasi, Medis, Profil) -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-white border-t border-[#F1F5F9]">
+<div class="max-w-md mx-auto h-14 px-3 flex items-center justify-around">
+<a class="flex flex-col items-center justify-center text-[#94A3B8] hover:text-[#0F172A] transition-colors" data-path="beranda" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="text-[10px] font-medium mt-0.5">Beranda</span>
+</a>
+<!-- Jurnal Active: Coral Accent #FF5A79 -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary font-semibold" data-path="jurnal" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-[10px] font-semibold mt-0.5">Jurnal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#94A3B8] hover:text-[#0F172A] transition-colors" data-path="edukasi" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="text-[10px] font-medium mt-0.5">Edukasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#94A3B8] hover:text-[#0F172A] transition-colors" data-path="medis" href="#">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+<span class="text-[10px] font-medium mt-0.5">Medis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#94A3B8] hover:text-[#0F172A] transition-colors" data-path="profil" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-[10px] font-medium mt-0.5">Profil</span>
+</a>
+</div>
+</nav>
+</body></html>

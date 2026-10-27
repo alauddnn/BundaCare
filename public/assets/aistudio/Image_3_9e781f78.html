@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_34 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_34" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_34');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // 3D 360-degree Interactive Fetus/Embryo Growth Visualizer for Pregnancy Tracker
+const container = document.getElementById('threejs-container') || document.body;
+
+const width = container.clientWidth || 320;
+const height = container.clientHeight || 240;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+camera.position.set(0, 0, 4.2);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+// Lighting setup for soft maternal/warm look
+const ambientLight = new THREE.AmbientLight(0xfff0f5, 1.2);
+scene.add(ambientLight);
+
+const dirLight = new THREE.DirectionalLight(0xffb6c1, 1.5);
+dirLight.position.set(3, 4, 3);
+scene.add(dirLight);
+
+const backLight = new THREE.DirectionalLight(0xff8da1, 0.8);
+backLight.position.set(-3, -2, -2);
+scene.add(backLight);
+
+// Group to hold the baby/fetus model & gestational sac
+const rootGroup = new THREE.Group();
+scene.add(rootGroup);
+
+// Soft translucent amniotic bubble / halo glow
+const sacGeom = new THREE.SphereGeometry(1.65, 32, 32);
+const sacMat = new THREE.MeshPhongMaterial({
+  color: 0xffd1dc,
+  transparent: true,
+  opacity: 0.22,
+  shininess: 90,
+  depthWrite: false
+});
+const amnioticSac = new THREE.Mesh(sacGeom, sacMat);
+rootGroup.add(amnioticSac);
+
+// Fetus organic model group
+const fetusGroup = new THREE.Group();
+rootGroup.add(fetusGroup);
+
+// Material for fetus - warm soft blush baby skin
+const skinMat = new THREE.MeshPhongMaterial({
+  color: 0xffafbd,
+  emissive: 0x4a1525,
+  specular: 0xffe4e8,
+  shininess: 30,
+  flatShading: false
+});
+
+// Head
+const headGeom = new THREE.SphereGeometry(0.58, 24, 24);
+const head = new THREE.Mesh(headGeom, skinMat);
+head.position.set(0, 0.55, 0);
+head.scale.set(1.0, 1.15, 1.05);
+fetusGroup.add(head);
+
+// Torso / Body (curved embryonic pose)
+const bodyGeom = new THREE.CylinderGeometry(0.42, 0.32, 0.85, 20);
+const body = new THREE.Mesh(bodyGeom, skinMat);
+body.position.set(-0.15, -0.15, 0);
+body.rotation.z = 0.35;
+fetusGroup.add(body);
+
+// Lower back / hips
+const hipGeom = new THREE.SphereGeometry(0.42, 20, 20);
+const hip = new THREE.Mesh(hipGeom, skinMat);
+hip.position.set(-0.25, -0.58, 0);
+fetusGroup.add(hip);
+
+// Curved Legs (tucked in curled fetal position)
+const legGeom = new THREE.CylinderGeometry(0.18, 0.14, 0.65, 16);
+
+// Left leg
+const legL = new THREE.Mesh(legGeom, skinMat);
+legL.position.set(-0.05, -0.75, 0.25);
+legL.rotation.set(0.6, 0.2, -1.2);
+fetusGroup.add(legL);
+
+// Right leg
+const legR = new THREE.Mesh(legGeom, skinMat);
+legR.position.set(-0.05, -0.75, -0.25);
+legR.rotation.set(-0.6, -0.2, -1.2);
+fetusGroup.add(legR);
+
+// Feet
+const footGeom = new THREE.SphereGeometry(0.12, 12, 12);
+const footL = new THREE.Mesh(footGeom, skinMat);
+footL.position.set(0.25, -0.65, 0.32);
+fetusGroup.add(footL);
+
+const footR = new THREE.Mesh(footGeom, skinMat);
+footR.position.set(0.25, -0.65, -0.32);
+fetusGroup.add(footR);
+
+// Folded Arms (held near chest/chin)
+const armGeom = new THREE.CylinderGeometry(0.13, 0.1, 0.52, 16);
+
+const armL = new THREE.Mesh(armGeom, skinMat);
+armL.position.set(0.15, 0.2, 0.28);
+armL.rotation.set(0.4, 0.3, -0.8);
+fetusGroup.add(armL);
+
+const armR = new THREE.Mesh(armGeom, skinMat);
+armR.position.set(0.15, 0.2, -0.28);
+armR.rotation.set(-0.4, -0.3, -0.8);
+fetusGroup.add(armR);
+
+// Hands
+const handGeom = new THREE.SphereGeometry(0.1, 12, 12);
+const handL = new THREE.Mesh(handGeom, skinMat);
+handL.position.set(0.32, 0.38, 0.18);
+fetusGroup.add(handL);
+
+const handR = new THREE.Mesh(handGeom, skinMat);
+handR.position.set(0.32, 0.38, -0.18);
+fetusGroup.add(handR);
+
+// Umbilical cord spiral line
+const curvePoints = [];
+for (let i = 0; i <= 24; i++) {
+  const t = i / 24;
+  const angle = t * Math.PI * 3.5;
+  const radius = 0.12 + t * 0.18;
+  curvePoints.push(new THREE.Vector3(
+    -0.1 + Math.cos(angle) * radius,
+    -0.3 - t * 0.7,
+    Math.sin(angle) * radius
+  ));
+}
+const curve = new THREE.CatmullRomCurve3(curvePoints);
+const cordGeom = new THREE.TubeGeometry(curve, 32, 0.045, 8, false);
+const cordMat = new THREE.MeshPhongMaterial({
+  color: 0xff8da1,
+  emissive: 0x5a1828,
+  shininess: 60,
+  transparent: true,
+  opacity: 0.85
+});
+const cord = new THREE.Mesh(cordGeom, cordMat);
+fetusGroup.add(cord);
+
+// Orbit / 360 touch drag & pointer interaction
+let isDragging = false;
+let previousPointerPosition = { x: 0, y: 0 };
+let autoRotate = true;
+let rotationSpeedX = 0;
+let rotationSpeedY = 0.008;
+
+const onPointerDown = (e) => {
+  isDragging = true;
+  autoRotate = false;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  previousPointerPosition = { x: clientX, y: clientY };
+};
+
+const onPointerMove = (e) => {
+  if (!isDragging) return;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  
+  const deltaX = clientX - previousPointerPosition.x;
+  const deltaY = clientY - previousPointerPosition.y;
+  
+  rootGroup.rotation.y += deltaX * 0.015;
+  rootGroup.rotation.x = Math.max(-0.6, Math.min(0.6, rootGroup.rotation.x + deltaY * 0.01));
+  
+  previousPointerPosition = { x: clientX, y: clientY };
+};
+
+const onPointerUp = () => {
+  isDragging = false;
+  setTimeout(() => { autoRotate = true; }, 3000);
+};
+
+container.addEventListener('mousedown', onPointerDown);
+window.addEventListener('mousemove', onPointerMove);
+window.addEventListener('mouseup', onPointerUp);
+
+container.addEventListener('touchstart', onPointerDown, { passive: true });
+window.addEventListener('touchmove', onPointerMove, { passive: true });
+window.addEventListener('touchend', onPointerUp, { passive: true });
+
+// Window resize handler
+const onResize = () => {
+  const w = container.clientWidth || 320;
+  const h = container.clientHeight || 240;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Animation Loop
+let clock = new THREE.Clock();
+
+const animate = () => {
+  requestAnimationFrame(animate);
+  
+  const elapsed = clock.getElapsedTime();
+  
+  // Gentle heartbeat / organic breathing pulse
+  const pulse = 1.0 + Math.sin(elapsed * 2.8) * 0.028;
+  fetusGroup.scale.set(pulse, pulse, pulse);
+  
+  // Amniotic sac floating wobble
+  amnioticSac.rotation.y = elapsed * 0.05;
+  amnioticSac.rotation.z = Math.sin(elapsed * 0.5) * 0.06;
+  
+  if (autoRotate && !isDragging) {
+    rootGroup.rotation.y += 0.01;
+    rootGroup.rotation.x = Math.sin(elapsed * 0.7) * 0.08;
+  }
+  
+  renderer.render(scene, camera);
+};
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_34 -->
+</body>
+</html>

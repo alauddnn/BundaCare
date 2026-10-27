@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_tab" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-color: #FAFAFA;
+        color: #0F172A;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .heading-font {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#0F172A] antialiased selection:bg-[#FF5A79]/15">
+<!-- Apple Health-style Minimal Top Bar -->
+<header class="fixed top-0 w-full z-40 pt-safe bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#F1F5F9]">
+<div class="h-14 px-4 flex items-center justify-between max-w-lg mx-auto">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-white border border-[#F1F5F9] flex items-center justify-center p-1 shadow-none">
+<img alt="Filo Care" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-s_2QB1xD9sV76HmlZLGI51FowH2WSXGEU9vvsK1wKHiipU-NntVXl_MV3z8iD1Sfr_n7hakYfTW_V4UZ7xyZey8wmyRgoUvATylLSBBLe1CBYO_QqLEnrpBodU_aOnZiv2gsw-i9I9h-h0CN8j0TUAmXOL8CznEre3JqE4PJpITYHOIc-Z-s4JlysGkDfTzMTw8SXEUsl2Ja0ciU5iMnhvlPTMoU3yWi0WLR8lGZI9JjiZSW8cDv3w"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="heading-font font-bold text-[16px] tracking-tight text-[#0F172A]">Filo</span>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-[#64748B]">Trimester 2 • W24</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Notifikasi" class="w-8 h-8 rounded-full flex items-center justify-center text-[#64748B] hover:text-[#0F172A] bg-white border border-[#F1F5F9] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+</button>
+<a class="w-8 h-8 rounded-full ring-1 ring-[#F1F5F9] block" data-path="akun" href="#">
+<img alt="Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6VJf8O6HQYzba9t2WXTI4wtrXVUuQChWnplhct44OjraBVuVmEqt8p0DV9bCodmn8nFY01FFDLJk6tRM7bXorGJVCw4qIo5-9cIJcQXH9MXsWjMKm63eZXik3lRjcX5YWe8hF2jWnb84PGv2hsa8udCOJd4T_eH8csSTj1I_nr_GhYqp9OfScdP8UnXffqaid2u6mOcfabI_jq2adpKEkNqtWMvBVuiZm2U1bBhHpXJmJUDE-ivW_0w"/>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Container with uniform 24px vertical rhythm -->
+<main class="flex flex-col relative w-full px-4 pt-16 pb-28 max-w-lg mx-auto space-y-6">
+<!-- Header Page Status -->
+<div class="pt-3 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100/70">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Buku KIA Digital Aktif
+        </span>
+<span class="text-[12px] text-[#64748B]">Minggu 24 (Bulan 6)</span>
+</div>
+<h1 class="heading-font text-2xl font-bold text-[#0F172A] tracking-tight mt-1">Jadwal &amp; Catatan Medis</h1>
+<p class="text-[13px] text-[#64748B]">Pemeriksaan rutin kehamilan Trimester 2</p>
+</div>
+<!-- Section 1: Doctor Appointment (Unified flat card with internal divider rows) -->
+<section class="bg-white rounded-2xl border border-[#F1F5F9] p-4 flex flex-col shadow-none">
+<!-- Header row -->
+<div class="flex items-center justify-between pb-3.5 border-b border-[#F1F5F9]">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF5A79]"></span>
+<span class="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Kunjungan Terdekat</span>
+</div>
+<span class="text-[12px] font-medium text-[#0F172A] flex items-center gap-1 bg-slate-50 px-2 py-0.5 rounded border border-[#F1F5F9]">
+<span class="material-symbols-outlined text-[14px] text-[#64748B]">schedule</span>
+          5 Hari Lagi
+        </span>
+</div>
+<!-- Doctor info row -->
+<div class="flex items-center gap-3 py-3.5 border-b border-[#F1F5F9]">
+<img class="w-12 h-12 rounded-full object-cover border border-[#F1F5F9] shrink-0" data-alt="dr. Andini, Sp.OG" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaQTCq94ySPQtsIpAE5B0uBNpupsI1n7DwN11CFh8dCKyZXRXSqajvrB5UsdEb0k5-7a1IXu1-NplL6l-GfX-7syw1Ney_aNy5UOkFrtPhPWNd_qNIzpt_qgzD1HBWhVao_zA61qmmTEgBrhJfS26ZacCC_5K2bCGlX9SZ5J7AuhGDr-hDd_w64PTtGmp7XQq8y5KwW82a9peQRoQr5lxbI3Die6tXTR1l8R8cNXumq16VU_c8O_9hjw"/>
+<div class="flex flex-col min-w-0 flex-1">
+<h2 class="heading-font font-bold text-[15px] text-[#0F172A] tracking-tight leading-snug">dr. Andini, Sp.OG</h2>
+<span class="text-[12px] text-[#64748B]">Konsultan Fetomaternal</span>
+<span class="text-[12px] text-[#64748B] flex items-center gap-1 mt-0.5 truncate">
+<span class="material-symbols-outlined text-[13px] text-slate-400 shrink-0">location_on</span>
+            RSIA Bunda Jakarta • Kebidanan Lt. 3
+          </span>
+</div>
+</div>
+<!-- Time & Queue row -->
+<div class="py-3.5 border-b border-[#F1F5F9] flex items-center justify-between text-[12px]">
+<div class="flex items-center gap-2 text-[#0F172A]">
+<span class="material-symbols-outlined text-[18px] text-[#64748B]">event</span>
+<div>
+<p class="font-medium text-[#0F172A]">Kamis, 28 September 2025 • 10:30 WIB</p>
+<p class="text-[11px] text-[#64748B]">USG Skrining &amp; Konsultasi Rutin</p>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-[#0F172A] bg-slate-50 px-2 py-1 rounded border border-[#F1F5F9]">Antrean #04</span>
+</div>
+<!-- Actions row (Coral used strictly for primary CTA) -->
+<div class="pt-3.5 flex flex-col gap-2">
+<button class="w-full h-10 rounded-xl bg-[#FF5A79] active:opacity-90 text-white font-medium text-[13px] flex items-center justify-center gap-1.5 transition-all shadow-none" type="button">
+<span class="material-symbols-outlined text-[17px]">confirmation_number</span>
+<span>Detail Janji Temu &amp; E-Tiket</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-xl bg-white border border-[#F1F5F9] text-[#0F172A] font-medium text-[12px] flex items-center justify-center gap-1.5 hover:bg-slate-50 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px] text-[#64748B]">directions</span>
+<span>Petunjuk Arah</span>
+</button>
+<button class="h-9 rounded-xl bg-white border border-[#F1F5F9] text-[#0F172A] font-medium text-[12px] flex items-center justify-center gap-1.5 hover:bg-slate-50 transition-colors" id="btn-sync-cal" type="button">
+<span class="material-symbols-outlined text-[15px] text-[#64748B]">event_available</span>
+<span id="cal-sync-label">Sync Kalender</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Trimester Screening Checklist (Unified card, clean dividers, no nested cards) -->
+<section class="bg-white rounded-2xl border border-[#F1F5F9] p-4 flex flex-col shadow-none">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-[#64748B]">Pemantauan Mandiri</span>
+<h2 class="heading-font font-bold text-[15px] text-[#0F172A]">Skrining Gejala Trimester 2</h2>
+</div>
+<span class="text-[11px] font-medium text-[#64748B] bg-slate-50 px-2 py-0.5 rounded border border-[#F1F5F9]">3 dari 5 Selesai</span>
+</div>
+<!-- Linear thin progress indicator -->
+<div class="w-full bg-slate-100 h-1 rounded-full overflow-hidden my-3">
+<div class="bg-slate-700 h-full rounded-full" style="width: 60%;"></div>
+</div>
+<p class="text-[12px] text-[#64748B] mb-1">Tandai jika Bunda merasakan gejala waspada dalam 48 jam terakhir:</p>
+<!-- Checklist Rows divided cleanly -->
+<div class="divide-y divide-[#F1F5F9]" id="screening-list">
+<label class="flex items-start gap-3 py-2.5 cursor-pointer">
+<input class="mt-0.5 w-4 h-4 rounded text-[#FF5A79] focus:ring-[#FF5A79] border-slate-300" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-[13px] text-[#0F172A] font-medium">Sakit kepala berat berdenyut yang tidak hilang</span>
+<span class="text-[11px] text-[#64748B]">Terutama di dahi atau pelipis setelah istirahat</span>
+</div>
+</label>
+<label class="flex items-start gap-3 py-2.5 cursor-pointer">
+<input class="mt-0.5 w-4 h-4 rounded text-[#FF5A79] focus:ring-[#FF5A79] border-slate-300" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-[13px] text-[#0F172A] font-medium">Pandangan berkunang-kunang atau buram mendadak</span>
+<span class="text-[11px] text-[#64748B]">Sensitif cahaya atau melihat bintik melayang</span>
+</div>
+</label>
+<label class="flex items-start gap-3 py-2.5 cursor-pointer">
+<input class="mt-0.5 w-4 h-4 rounded text-[#FF5A79] focus:ring-[#FF5A79] border-slate-300" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-[13px] text-[#0F172A] font-medium">Bengkak tiba-tiba pada wajah &amp; kedua tangan</span>
+<span class="text-[11px] text-[#64748B]">Cincin sulit dilepas atau kelopak mata sembab</span>
+</div>
+</label>
+</div>
+<!-- Footer action and status -->
+<div class="pt-3 mt-1 border-t border-[#F1F5F9] flex items-center justify-between">
+<div class="text-[11px] text-[#64748B] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+          Hasil 20 Sep: Normal
+        </div>
+<button class="h-8 px-3 rounded-lg border border-[#F1F5F9] bg-slate-50 text-[#0F172A] hover:bg-slate-100 text-[12px] font-medium flex items-center gap-1 transition-colors" id="btn-save-screening" type="button">
+<span class="material-symbols-outlined text-[15px] text-[#64748B]">save</span>
+<span>Simpan Data</span>
+</button>
+</div>
+</section>
+<!-- Section 3: Doctor Questions (Unified flat card with divider rows) -->
+<section class="bg-white rounded-2xl border border-[#F1F5F9] p-4 flex flex-col shadow-none">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+<div>
+<h2 class="heading-font font-bold text-[15px] text-[#0F172A]">Tanya Dokter</h2>
+<span class="text-[12px] text-[#64748B]">Persiapan Konsultasi 28 Sep</span>
+</div>
+<button class="h-7 px-2.5 rounded-lg border border-[#F1F5F9] bg-slate-50 hover:bg-slate-100 text-[#0F172A] text-[11px] font-medium flex items-center gap-1" id="btn-add-question" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Tambah</span>
+</button>
+</div>
+<!-- Add Question Form Inline -->
+<div class="hidden flex-col gap-2 py-3 border-b border-[#F1F5F9]" id="new-question-box">
+<input class="w-full bg-[#FAFAFA] text-[#0F172A] border border-[#F1F5F9] px-3 py-1.5 rounded-lg text-[12px] placeholder:text-[#64748B] focus:outline-none focus:border-slate-300" id="input-question-text" placeholder="Tulis pertanyaan untuk dr. Andini..." type="text"/>
+<div class="flex justify-end gap-2">
+<button class="px-2.5 py-1 text-[#64748B] text-[11px] font-medium" id="btn-cancel-q" type="button">Batal</button>
+<button class="px-3 py-1 rounded-md bg-[#0F172A] text-white text-[11px] font-medium" id="btn-submit-q" type="button">Simpan</button>
+</div>
+</div>
+<!-- Flat Divided Question Rows -->
+<div class="divide-y divide-[#F1F5F9]" id="questions-container">
+<!-- Item 1 (Done) -->
+<div class="py-2.5 flex items-start gap-2.5" data-status="done">
+<button class="q-toggle mt-0.5 w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0" type="button">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-[12px] text-[#64748B] line-through">Apakah letak plasenta aman &amp; tidak menutupi jalan lahir?</span>
+<span class="text-[10px] text-[#64748B] mt-0.5">Sudah dibahas pada 28 Ags (Posisi Posterior, aman)</span>
+</div>
+</div>
+<!-- Item 2 (Pending) -->
+<div class="py-2.5 flex items-start gap-2.5" data-status="pending">
+<button class="q-toggle mt-0.5 w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center shrink-0" type="button">
+<span class="material-symbols-outlined text-[11px] hidden">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-[12px] font-medium text-[#0F172A]">Rekomendasi suplemen kalsium jika masih sering kram betis di malam hari?</span>
+<span class="text-[10px] text-amber-700 font-medium mt-0.5">Prioritas Konsultasi</span>
+</div>
+</div>
+<!-- Item 3 (Pending) -->
+<div class="py-2.5 flex items-start gap-2.5" data-status="pending">
+<button class="q-toggle mt-0.5 w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center shrink-0" type="button">
+<span class="material-symbols-outlined text-[11px] hidden">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-[12px] font-medium text-[#0F172A]">Jadwal skrining USG 4D Fetomaternal paling ideal di minggu ke berapa?</span>
+<span class="text-[10px] text-[#64748B] mt-0.5">Belum dibahas</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Ultrasound Records (Unified card, divider rows, monochrome scans) -->
+<section class="bg-white rounded-2xl border border-[#F1F5F9] p-4 flex flex-col shadow-none">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+<div>
+<h2 class="heading-font font-bold text-[15px] text-[#0F172A]">Riwayat &amp; Rekam USG</h2>
+<span class="text-[12px] text-[#64748B]">Arsip digital sonografi &amp; lab</span>
+</div>
+<span class="material-symbols-outlined text-[#64748B] text-[18px]">folder_open</span>
+</div>
+<div class="divide-y divide-[#F1F5F9]">
+<!-- Ultrasound 1 -->
+<div class="py-3 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-[#F1F5F9] bg-black shrink-0">
+<img class="w-full h-full object-cover filter contrast-125" data-alt="USG Scan W20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSMjwzH71_jsPYQ-fgYZ4Eq4JeaWrBmuUCPplYCnBLzOMNbNEg1HdYMaG-aXZ5bRynYeLeElvNbRcwU-EJ0UU-Gjsrus1jz-CJR3redPju2ZiaBbldhpDhZtcLSa6wpY8t9ZVjpE4MnQe97lfVhCTDX9W0ZxVYNkqXKhuforvb7q2-a78CZi6GVZCLN5CS9XOcKqQBIcnuJoIuoaBG6QRFXzBEt0oVBWcLSLe9441ScNHjUzV668yD8A"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-[#0F172A] truncate">USG Morfologi Organ (W20)</span>
+<span class="text-[11px] font-medium text-emerald-700">Normal</span>
+</div>
+<span class="text-[11px] text-[#64748B]">28 Ags 2025 • dr. Andini, Sp.OG</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] text-[#64748B] bg-slate-50 px-1.5 py-0.5 rounded border border-[#F1F5F9]">TBB: 350 gr</span>
+<span class="text-[10px] text-[#64748B] bg-slate-50 px-1.5 py-0.5 rounded border border-[#F1F5F9]">DJJ: 142 bpm</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="text-[11px] text-[#64748B] hover:text-[#0F172A] font-medium flex items-center gap-1 py-0.5" type="button">
+<span class="material-symbols-outlined text-[13px]">file_download</span>
+<span>Unduh PDF</span>
+</button>
+</div>
+</div>
+<!-- Ultrasound 2 -->
+<div class="py-3 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-[#F1F5F9] bg-black shrink-0">
+<img class="w-full h-full object-cover filter contrast-125" data-alt="USG Scan W12 NT" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwqLgbwNfQp27MMZCzkqrBTPLh2fgV0VzQG3LCAmr_mtelc2kT7QHeyKfo024exY6mbJUgkcVczu-lHZGcKhlwHbFeC7XoE4EJH84Ro8UPldIOTNhXMJFbIPJKb8kJQEnhz98fbj8J4QRynTS-M8f2wZqDCW91W1pGa-3VHjleAOUI43sL38K15epAnDX094oVseE6JFNf51b2m40EGQvhb9YHOLv6ihK4jMSNJy9WdqGSR8JipStMOg"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-[#0F172A] truncate">USG Nuchal Translucency (W12)</span>
+<span class="text-[11px] font-medium text-emerald-700">Rendah Risiko</span>
+</div>
+<span class="text-[11px] text-[#64748B]">05 Jul 2025 • RSIA Bunda</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] text-[#64748B] bg-slate-50 px-1.5 py-0.5 rounded border border-[#F1F5F9]">NT: 1.2 mm</span>
+<span class="text-[10px] text-[#64748B] bg-slate-50 px-1.5 py-0.5 rounded border border-[#F1F5F9]">Kromosom Normal</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="text-[11px] text-[#64748B] hover:text-[#0F172A] font-medium flex items-center gap-1 py-0.5" type="button">
+<span class="material-symbols-outlined text-[13px]">file_download</span>
+<span>Unduh PDF</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Support / Emergency Helpline Clean Card -->
+<section class="bg-white rounded-xl border border-[#F1F5F9] p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-50 border border-[#F1F5F9] flex items-center justify-center text-[#64748B] shrink-0">
+<span class="material-symbols-outlined text-[17px]">emergency</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] font-medium text-[#0F172A]">Bantuan Siaga Medis 24 Jam</span>
+<span class="text-[11px] text-[#64748B]">IGD Kebidanan RSIA Bunda: <span class="font-medium text-[#0F172A]">021-3192-2005</span></span>
+</div>
+</section>
+</main>
+<!-- Navigation: Fixed Bottom Bar with 5 tabs: Beranda, Jurnal, Edukasi, Medis (Active - Coral), Profil -->
+<nav class="fixed bottom-0 w-full z-40 pb-safe bg-white/95 backdrop-blur-md border-t border-[#F1F5F9]">
+<div class="max-w-lg mx-auto px-2 py-1.5 flex items-center justify-around">
+<a class="flex flex-col items-center justify-center min-w-[56px] py-1 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="beranda" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="text-[10px] font-medium mt-0.5">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] py-1 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="jurnal" href="#">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+<span class="text-[10px] font-medium mt-0.5">Jurnal</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] py-1 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="edukasi" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="text-[10px] font-medium mt-0.5">Edukasi</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] py-1 text-[#FF5A79] font-medium" data-path="medis" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-[10px] font-semibold mt-0.5">Medis</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] py-1 text-[#64748B] hover:text-[#0F172A] transition-colors" data-path="akun" href="#">
+<span class="material-symbols-outlined text-[20px]">person_outline</span>
+<span class="text-[10px] font-medium mt-0.5">Profil</span>
+</a>
+</div>
+</nav>
+<script>
+    // Sync Calendar
+    const syncBtn = document.getElementById('btn-sync-cal');
+    const syncLabel = document.getElementById('cal-sync-label');
+    if (syncBtn && syncLabel) {
+      syncBtn.addEventListener('click', () => {
+        syncLabel.textContent = 'Tersimpan ✓';
+        setTimeout(() => {
+          syncLabel.textContent = 'Sync Kalender';
+        }, 2000);
+      });
+    }
+
+    // Save Screening
+    const saveScreeningBtn = document.getElementById('btn-save-screening');
+    if (saveScreeningBtn) {
+      saveScreeningBtn.addEventListener('click', () => {
+        saveScreeningBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] text-emerald-600">check</span><span>Tersimpan</span>';
+        setTimeout(() => {
+          saveScreeningBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] text-[#64748B]">save</span><span>Simpan Data</span>';
+        }, 2000);
+      });
+    }
+
+    // Questions checklist toggle
+    const questionsContainer = document.getElementById('questions-container');
+    if (questionsContainer) {
+      questionsContainer.addEventListener('click', (e) => {
+        const toggleBtn = e.target.closest('.q-toggle');
+        if (!toggleBtn) return;
+        const card = toggleBtn.closest('[data-status]');
+        const icon = toggleBtn.querySelector('.material-symbols-outlined');
+        const textSpan = card.querySelector('span:first-of-type');
+        const subSpan = card.querySelector('.text-\\[10px\\]');
+
+        if (card.dataset.status === 'pending') {
+          card.dataset.status = 'done';
+          toggleBtn.className = 'q-toggle mt-0.5 w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0';
+          icon.classList.remove('hidden');
+          textSpan.classList.add('line-through', 'text-[#64748B]');
+          textSpan.classList.remove('text-[#0F172A]', 'font-medium');
+          if (subSpan) subSpan.textContent = 'Sudah dibahas';
+        } else {
+          card.dataset.status = 'pending';
+          toggleBtn.className = 'q-toggle mt-0.5 w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center shrink-0';
+          icon.classList.add('hidden');
+          textSpan.classList.remove('line-through', 'text-[#64748B]');
+          textSpan.classList.add('text-[#0F172A]', 'font-medium');
+          if (subSpan) subSpan.textContent = 'Belum dibahas';
+        }
+      });
+    }
+
+    // Add question toggle & submission
+    const btnAddQ = document.getElementById('btn-add-question');
+    const newQBox = document.getElementById('new-question-box');
+    const btnCancelQ = document.getElementById('btn-cancel-q');
+    const btnSubmitQ = document.getElementById('btn-submit-q');
+    const inputQText = document.getElementById('input-question-text');
+
+    if (btnAddQ && newQBox) {
+      btnAddQ.addEventListener('click', () => {
+        newQBox.classList.toggle('hidden');
+        newQBox.classList.toggle('flex');
+        if (!newQBox.classList.contains('hidden')) {
+          inputQText.focus();
+        }
+      });
+    }
+
+    if (btnCancelQ && newQBox) {
+      btnCancelQ.addEventListener('click', () => {
+        newQBox.classList.add('hidden');
+        newQBox.classList.remove('flex');
+        inputQText.value = '';
+      });
+    }
+
+    if (btnSubmitQ && newQBox && inputQText && questionsContainer) {
+      btnSubmitQ.addEventListener('click', () => {
+        const val = inputQText.value.trim();
+        if (!val) return;
+
+        const newRow = document.createElement('div');
+        newRow.className = 'py-2.5 flex items-start gap-2.5';
+        newRow.setAttribute('data-status', 'pending');
+        newRow.innerHTML = `
+          <button type="button" class="q-toggle mt-0.5 w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[11px] hidden">check</span>
+          </button>
+          <div class="flex flex-col min-w-0 flex-1">
+            <span class="text-[12px] font-medium text-[#0F172A]">${val}</span>
+            <span class="text-[10px] text-amber-700 font-medium mt-0.5">Baru ditambahkan • Belum dibahas</span>
+          </div>
+        `;
+
+        questionsContainer.insertBefore(newRow, questionsContainer.firstChild);
+        inputQText.value = '';
+        newQBox.classList.add('hidden');
+        newQBox.classList.remove('flex');
+      });
+    }
+  </script>
+</body></html>
